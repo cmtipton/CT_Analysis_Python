@@ -21,12 +21,12 @@ for high_num in range(high_num_folders):
     high_num = high_num + 1
 
     #Remove past data folder
-    if os.path.exists("/Users/cmtipto/IgSeq/Data/"):
-        shutil.rmtree('/Users/cmtipto/IgSeq/Data/')
+    if os.path.exists("/Users/cmtipto/IgSeq/data/"):
+        shutil.rmtree('/Users/cmtipto/IgSeq/data/')
 
     #make new data folder
-    if not os.path.exists("/Users/cmtipto/IgSeq/Data/"):
-        os.makedirs("/Users/cmtipto/IgSeq/Data/")
+    if not os.path.exists("/Users/cmtipto/IgSeq/data/"):
+        os.makedirs("/Users/cmtipto/IgSeq/data/")
 
     #Find txz files in the folder
     txzs = []
@@ -56,7 +56,7 @@ for high_num in range(high_num_folders):
             src = high_src+"/"+folders[num-1]
             print src
             num = num + 1
-            shutil.move(src, "/Users/cmtipto/IgSeq/Data/")
+            shutil.move(src, "/Users/cmtipto/IgSeq/data/")
 
     perl_script = subprocess.Popen(["/Users/cmtipto/IgSeq/IgSeq"])
     perl_script.communicate()
