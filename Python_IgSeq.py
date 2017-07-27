@@ -1,8 +1,16 @@
 #! /usr/bin/env python
 
-import os, sys, tarfile, re, glob, shutil
+import os, sys, tarfile, re, glob, shutil, time
 
 path = sys.argv[1]
+
+#Remove past data folder
+if os.path.exists("/Users/cmtipto/IgSeq/Data/"):
+    shutil.rmtree('/Users/cmtipto/IgSeq/Data/')
+
+#make new data folder
+if not os.path.exists("/Users/cmtipto/IgSeq/Data/"):
+    os.makedirs("/Users/cmtipto/IgSeq/Data/")
 
 #Find txz files in the folder
 txzs = []
