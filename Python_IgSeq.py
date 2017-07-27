@@ -1,4 +1,12 @@
 #! /usr/bin/env python
+#
+#Change Igseq db input to:
+#
+#print "Enter output database name: ";
+#my $au_name = 'Database';
+#chomp $au_name;
+#my $datetime = POSIX::strftime("%Y_%m_%d_%H_%M_%S", localtime);
+#my $db_name = $au_name;
 
 import os, sys, tarfile, re, glob, shutil, subprocess
 
