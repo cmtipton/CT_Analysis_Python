@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-import os, sys, tarfile, re, glob, shutil, time
+import os, sys, tarfile, re, glob, shutil, subprocess
 
 path = sys.argv[1]
 
@@ -50,4 +50,8 @@ for high_num in range(high_num_folders):
             num = num + 1
             shutil.move(src, "/Users/cmtipto/IgSeq/Data/")
 
-    time.sleep(5)
+    perl_script = subprocess.Popen(["/Users/cmtipto/IgSeq/IgSeq"])
+    perl_script.communicate()
+    shutil.move("/Users/cmtipto/IgSeq/mergeOutput/",high_src)
+    shutil.move("/Users/cmtipto/IgSeq/lineageOutput/",high_src)
+    shutil.move("/Users/cmtipto/IgSeq/db/Database.db",high_src)
