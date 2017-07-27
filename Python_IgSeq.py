@@ -1,19 +1,23 @@
 #! /usr/bin/env python
 
-import os, sys, zipfile
+import os, sys, tarfile, re, glob
 
 path = sys.argv[1]
 
-files = os.listdir(path)
-num_files = len(files)
-#print num_folders
+#Find txz files in the folder
+txzs = []
+for root, dirs, files in os.walk(sys.argv[1]):
+    txzs += glob.glob(os.path.join(root, '*.txz'))
 
+#Determine and print the number of txz files in the folder
+num_files = len(txzs)
+print(num_files)
+
+#For each txz, make a folder of the same name and decompress into that folder
 num = 1
-#num_folders = 3
 for num in range(num_files):
-        print files[num-1]
+        directory = os.path.splitext(txzs[num])
+        print(directory[0])
+        os.makedirs(directory[0])
+        os.system("tar -xvzf"+txzs[num-1]+" -C "+directory[0])
         num = num + 1
-
-#zip_ref = zipfile.ZipFile(path_to_zip_file, 'r')
-#zip_ref.extractall(directory_to_extract_to)
-#zip_ref.close()
