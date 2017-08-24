@@ -43,7 +43,7 @@ for high_num in range(high_num_folders):
         directory = os.path.splitext(txzs[num])
         print(directory[0])
         os.makedirs(directory[0])
-        os.system("tar -xvzf"+txzs[num-1]+" -C "+directory[0])
+        os.system("tar -xvzf"+txzs[num]+" -C "+directory[0])
         num = num + 1
 
     #Identify the folders made
